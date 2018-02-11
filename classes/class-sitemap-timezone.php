@@ -27,12 +27,14 @@ class WPSEO_News_Sitemap_Timezone {
 	private function wp_get_timezone_string() {
 
 		// If site timezone string exists, return it.
-		if ( $timezone = get_option( 'timezone_string' ) ) {
+		$timezone = get_option( 'timezone_string' );
+		if ( $timezone ) {
 			return $timezone;
 		}
 
 		// Get UTC offset, if it isn't set then return UTC.
-		if ( 0 === ( $utc_offset = get_option( 'gmt_offset', 0 ) ) ) {
+		$utc_offset = get_option( 'gmt_offset', 0 );
+		if ( 0 === $utc_offset ) {
 			return 'UTC';
 		}
 
