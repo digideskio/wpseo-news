@@ -22,6 +22,7 @@ module.exports = function( grunt ) {
 			logs: "logs/"
 		},
 		files: {
+			artifact: "artifact",
 			js: [
 				"assets/**/*.js",
 				"!assets/**/*.min.js"

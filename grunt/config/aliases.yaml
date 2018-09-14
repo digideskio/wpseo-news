@@ -4,6 +4,7 @@
 build:
   - 'build:js'
   - 'build:i18n'
+
 # Build JavaScript from assets to production
 'build:js':
   - 'uglify'
@@ -28,18 +29,16 @@ check:
   - 'phpcs'
 'check:i18n':
   - 'checktextdomain'
+
 # Create a zipped artifact from a fresh build
-'create:artifact':
+'artifact':
   - 'update-version'
+  - 'shell:production-composer-install'
   - 'build'
+  - 'clean:artifact'
   - 'copy:artifact'
   - 'compress:artifact'
-# Copy the needed files to the ./artifact folder
-'copy:artifact':
-  - 'copy:artifactFiles'
-# Create a compressed zip from the ./artifact folder
-'compress:artifact':
-  - 'compress:artifactFiles'
+
 # Default task
 default:
   - build

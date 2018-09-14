@@ -1,15 +1,15 @@
 module.exports = {
-	artifactFiles: {
+	artifact: {
 		options: {
 			archive: "artifact.zip",
+			level: 9,
 		},
 		files: [
 			{
-				expand: true,
-				cwd: "artifact/",
+				cwd: "<%= files.artifact %>/",
 				src: ["**"],
-				dest: "./",
+				dest: "wpseo-news",
 			},
 		],
 	},
-}
+};

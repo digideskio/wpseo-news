@@ -1,20 +1,21 @@
 module.exports = {
-	artifactFiles: {
+	artifact: {
 		files: [
 			{
 				expand: true,
 				cwd: ".",
 				src: [
-					// Folders to copy.
-					"vendor/**",
-					"languages/**",
 					// Files to copy.
-					"/assets/xml-news-sitemap.xsl",
-					"/assets/*.min.js",
+					"assets/xml-news-sitemap.xsl",
+					"assets/*.min.js",
+					"classes/**",
+					"languages/*.mo",
+					"vendor/**",
+					"license.txt",
 					"*.php"
 				],
-				dest: "artifact",
+				dest: "<%= files.artifact %>",
 			},
 		],
 	},
-}
+};
